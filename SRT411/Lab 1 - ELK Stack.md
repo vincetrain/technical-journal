@@ -10,6 +10,7 @@ Install signing key
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg
 ```
 
+
 Install apt repository
 ```sh
 sudo apt-get install apt-transport-https
@@ -27,10 +28,12 @@ The `elasticsearch` binary (and other supporting binaries) are stored at `/usr/s
 
 Elasticsearch configurations can be found inside of `/etc/elasticsearch/elasticsearch.yml`.
 
+
 Check Elasticsearch health
 ```sh
 curl --cacert /etc/elasticsearch/certs/http_ca.crt -u [username] https://localhost:9200/_cluster/health
 ```
+
 
 For elasticsearch to work, ensure at least 1 correct initial master node is set inside `/etc/elasticsearch/elasticsearch.yml`.
 ```yml
@@ -46,10 +49,12 @@ Kibana binaries can be found at `/usr/share/kibana/bin`.
 
 The Kibana webserver will be running at [localhost:5601](localhost:5601)
 
+
 Create a user. This is the user we will use with Kibana. You will be prompted to enter a password for the user after running this command.
 ```sh
 elasticsearch/bin/elasticsearch-users useradd [user]
 ```
+
 
 Add required user roles for unlimited Kibana and Elasticsearch usage
 ```sh
@@ -58,12 +63,14 @@ elasticsearch/bin/elasticsearch-users roles [user] -a kibana_admin,superuser
 >The `kibana_admin` role allows unlimited to usage of Kibana, including administrative use. 
 >The `superuser` role allows unlimited read and write access (and usage) of Elasticsearch and its indices.
 
+
 Create enrollment token for usage with Kibana. This will be pasted inside of the Kibana web page when prompted after a fresh installation.
 ```shell
 elasticsearch/bin/elasticsearch-create-enrollment-token -s kibana --url https://[url-of-elasticsearch]:9200
 ```
 >`-s` indicates the scope, and can either be `kibana` or `node`
 >`--url` indicates the URL to use for connection to Elasticsearch.
+
 
 Gets verification code for Kibana enrollment.
 ```sh
@@ -78,7 +85,6 @@ Logstash configuration files can be found in `/etc/logstash/`.
 
 Logstash binaries can be found at `/usr/share/logstash/bin`.
 
-These pipelines serve the purpose of capturing and parsing logs, and forwarding the information to Elasticsearch.
 
 For Logstash, we add an Elasticsearch role with required permissions.
 ```HTTP
@@ -94,6 +100,8 @@ POST /security/role/logstash_user
 	]
 }
 ```
+Refer to [[#Installing & Configuring Kibana]] to setup a user for Logstash
+
 
 Because Elasticsearch was autoconfigured with SSL, we need to copy Elasticsearch's SSL certificate to our Logstash instance.
 ```sh
@@ -114,6 +122,7 @@ set shiftwidth=4
 set expandtab
 ```
 
+
 Empty Logstash configuration template
 ```conf
 input {
@@ -130,6 +139,7 @@ output {
 
 ```
 
+
 Make Logstash read from a file
 ```conf
 input {
@@ -142,6 +152,7 @@ input {
 }
 ```
 >sincedb_path should be "NUL" on Windows
+
 
 Make Logstash output to Elasticsearch with SSL using previous certs
 ```conf
