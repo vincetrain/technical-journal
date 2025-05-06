@@ -99,7 +99,10 @@ cp /etc/elasticsearch/certs/http_ca.crt /etc/logstash/certs
 ## you may also want to chmod or chown the cert depending on how you're using logstash
 ```
 ### Logstash Pipelines
-Logstash pipelines are, by default, stored in `/etc/logstash/conf.d`
+Logstash pipelines are, by default, stored in `/etc/logstash/conf.d`, but it is possible to store pipelines elsewhere.
+
+To run pipelines at a specified directory, us the `-f` flag and point it towards the pipeline path.
+> It may be worth adding `/usr/share/logstash/bin` to PATH for convenience
 
 If using Vim, ensure the following configurations are set for tabs to be recognized and usable in pipelines
 ```vimrc
