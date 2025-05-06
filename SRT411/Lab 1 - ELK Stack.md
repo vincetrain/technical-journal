@@ -73,6 +73,8 @@ Install Logstash on machines that you wish to log from (i.e, an Apache web serve
 
 Logstash configuration files can be found in `/etc/logstash/`.
 
+Logstash binaries can be found at `/usr/share/logstash/bin`.
+
 Logstash will primarily be configured within `/etc/logstash/conf.d` where pipelines will be defined.
 
 These pipelines serve the purpose of capturing and parsing logs, and forwarding the information to Elasticsearch.
