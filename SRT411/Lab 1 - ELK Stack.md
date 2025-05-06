@@ -102,6 +102,22 @@ cp /etc/elasticsearch/certs/http_ca.crt /etc/logstash/certs
 ## you may also want to chmod or chown the cert depending on how you're using logstash
 ```
 ### Logstash Pipelines
+Empty Logstash configuration template
+```conf
+input {
+
+}
+
+filter {
+
+}
+
+output {
+
+}
+
+```
+
 Make Logstash read from a file
 ```conf
 input {
@@ -114,17 +130,16 @@ input {
 }
 ```
 
-Make Elasticsearch
+Make Logstash output to Elasticsearch with SSL using previous certs
 ```conf
 output {
 	elasticsearch {
 		hosts => ["https://elasticsearch-url:9200"]
 		ssl_enabled => true
-		ssl_certificate_authorities => ["/path/to/ca.crt"]
+		ssl_certificate_authorities => ["/etc/logstash/certs/http_ca.crt"]
 		user => "logstash_user"
 		password => "your-password-here"
 		index => "example-index"
 	}
 }
-
 ```
