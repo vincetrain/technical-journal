@@ -1,6 +1,9 @@
-[Install Elasticsearch with a Debian package](https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsearch-with-debian-package)  
-[Create or update roles (Elasticsearch)](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-security-put-role)  
+[Install Elasticsearch with a Debian package](https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsearch-with-debian-package)
+
+[Create or update roles (Elasticsearch)](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-security-put-role)
+
 [Secure communication with an on-premise Elasticsearch cluster](https://www.elastic.co/docs/reference/logstash/secure-connection#es-security-onprem)  
+
 ## Preparing apt Repository
 Install signing key
 ```sh
