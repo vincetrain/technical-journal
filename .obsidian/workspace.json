@@ -34,9 +34,21 @@
               "icon": "lucide-file",
               "title": "Lab 1 - ELK Stack"
             }
+          },
+          {
+            "id": "c5daa4e16234b322",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.8.10"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.8.10"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -194,7 +206,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7433cbf06628d406",
+  "active": "c5daa4e16234b322",
   "lastOpenFiles": [
     "SRT411",
     "SRT411/Lab 1 - ELK Stack.md",
