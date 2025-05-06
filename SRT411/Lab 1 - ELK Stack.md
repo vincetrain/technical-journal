@@ -94,6 +94,37 @@ POST /security/role/logstash_user
 	]
 }
 ```
-### Creating Certs for Logstash
 
+Because Elasticsearch was autoconfigured with SSL, we need to copy Elasticsearch's SSL certificate to our Logstash instance.
+```sh
+mkdir /etc/logstash/certs
+cp /etc/elasticsearch/certs/http_ca.crt /etc/logstash/certs
+## you may also want to chmod or chown the cert depending on how you're using logstash
+```
 ### Logstash Pipelines
+Make Logstash read from a file
+```conf
+input {
+	file {
+		path => "/path/to/logs"
+		# Optional, define sincedb_path as null to re-read ALL logs every run
+		start_position => "beginning"
+		sincedb_path => "/dev/null"
+	}
+}
+```
+
+Make Elasticsearch
+```conf
+output {
+	elasticsearch {
+		hosts => ["https://elasticsearch-url:9200"]
+		ssl_enabled => true
+		ssl_certificate_authorities => ["/path/to/ca.crt"]
+		user => "logstash_user"
+		password => "your-password-here"
+		index => "example-index"
+	}
+}
+
+```
