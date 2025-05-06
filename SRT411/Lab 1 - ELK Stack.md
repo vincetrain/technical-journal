@@ -1,5 +1,6 @@
 [Elasticsearch Referenced Material](https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsearch-with-debian-package)
 [Logstash Referenced Material](https://www.instaclustr.com/support/documentation/elasticsearch/using-logstash/connecting-logstash-to-elasticsearch/)
+[Managing Roles For Elasticsearch Referenced Material](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-security-put-role)
 ## Preparing apt Repository
 Install signing key
 ```sh
@@ -75,4 +76,9 @@ Logstash configuration files can be found in `/etc/logstash/`.
 Logstash will primarily be configured within `/etc/logstash/conf.d` where pipelines will be defined.
 
 These pipelines serve the purpose of capturing and parsing logs, and forwarding the information to Elasticsearch.
+
+For Logstash to work with an authenticated Elasticsearch instance, we have to add a role with required permissions.
+```HTTP
+
+```
 ### Logstash Pipelines
