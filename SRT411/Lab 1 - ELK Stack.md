@@ -1,6 +1,7 @@
 [Elasticsearch Referenced Material](https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsearch-with-debian-package)
 [Logstash Referenced Material](https://www.instaclustr.com/support/documentation/elasticsearch/using-logstash/connecting-logstash-to-elasticsearch/)
 [Managing Roles For Elasticsearch Referenced Material](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-security-put-role)
+[Creating Elasticsearch Certs Referenced Material](https://www.elastic.co/docs/reference/fleet/secure-logstash-connections)
 ## Preparing apt Repository
 Install signing key
 ```sh
@@ -93,4 +94,6 @@ POST /security/role/logstash_user
 	]
 }
 ```
+### Creating Certs for Logstash
+
 ### Logstash Pipelines
