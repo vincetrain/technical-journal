@@ -1,7 +1,6 @@
-[Elasticsearch Referenced Material](https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsearch-with-debian-package)
-[Logstash Referenced Material](https://www.instaclustr.com/support/documentation/elasticsearch/using-logstash/connecting-logstash-to-elasticsearch/)
-[Managing Roles For Elasticsearch Referenced Material](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-security-put-role)
-[Creating Elasticsearch Certs Referenced Material](https://www.elastic.co/docs/reference/fleet/secure-logstash-connections)
+[Install Elasticsearch with a Debian package](https://www.elastic.co/docs/deploy-manage/deploy/self-managed/install-elasticsearch-with-debian-package)
+[Create or update roles (Elasticsearch)](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-security-put-role)
+[Secure communication with an on-premise Elasticsearch cluster](https://www.elastic.co/docs/reference/logstash/secure-connection#es-security-onprem)
 ## Preparing apt Repository
 Install signing key
 ```sh
@@ -76,8 +75,6 @@ Logstash configuration files can be found in `/etc/logstash/`.
 
 Logstash binaries can be found at `/usr/share/logstash/bin`.
 
-Logstash will primarily be configured within `/etc/logstash/conf.d` where pipelines will be defined.
-
 These pipelines serve the purpose of capturing and parsing logs, and forwarding the information to Elasticsearch.
 
 For Logstash, we add an Elasticsearch role with required permissions.
@@ -102,6 +99,15 @@ cp /etc/elasticsearch/certs/http_ca.crt /etc/logstash/certs
 ## you may also want to chmod or chown the cert depending on how you're using logstash
 ```
 ### Logstash Pipelines
+Logstash pipelines are, by default, stored in `/etc/logstash/conf.d`
+
+If using Vim, ensure the following configurations are set for tabs to be recognized and usable in pipelines
+```vimrc
+set tabstop=4
+set shiftwidth=4
+set expandtab
+```
+
 Empty Logstash configuration template
 ```conf
 input {
@@ -129,6 +135,7 @@ input {
 	}
 }
 ```
+>sincedb_path should be "NUL" on Windows
 
 Make Logstash output to Elasticsearch with SSL using previous certs
 ```conf
