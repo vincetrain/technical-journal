@@ -77,8 +77,18 @@ Logstash will primarily be configured within `/etc/logstash/conf.d` where pipeli
 
 These pipelines serve the purpose of capturing and parsing logs, and forwarding the information to Elasticsearch.
 
-For Logstash to work with an authenticated Elasticsearch instance, we have to add a role with required permissions.
+For Logstash, we add an Elasticsearch role with required permissions.
 ```HTTP
-
+POST /security/role/logstash_user
+{
+	"description": "Grants necessary privileges for logstash functionality",
+	"cluster": ["all"],
+	"indices": [
+		{
+			"names": ["your-index"],
+			"privileges": ["all"]
+		}
+	]
+}
 ```
 ### Logstash Pipelines
