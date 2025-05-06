@@ -27,13 +27,12 @@ The `elasticsearch` binary (and other supporting binaries) are stored at `/usr/s
 
 Elasticsearch configurations can be found inside of `/etc/elasticsearch/elasticsearch.yml`.
 
-
 Check Elasticsearch health
 ```sh
 curl --cacert /etc/elasticsearch/certs/http_ca.crt -u [username] https://localhost:9200/_cluster/health
 ```
 
-For elasticsearch to work, ensure at least 1 correct initial master node is set inside `/etc/elasticsearch/elasticsearch.yml`.
+For Elasticsearch to work, ensure at least 1 correct initial master node is set inside `/etc/elasticsearch/elasticsearch.yml`.
 ```yml
 node.name: example-node-1
 ...
