@@ -155,9 +155,10 @@ output {
 	}
 }
 ```
-
 #### Logging Apache2 Events
 System logs are stored at `/var/log/`. To allow Logstash to access these logs, give the `logstash` user the `adm` role.
 ```sh
 usermod -aG adm logstash
 ```
+
+Apache has two types of logs (access and error), so we will create two individual pipelines 
