@@ -161,4 +161,5 @@ System logs are stored at `/var/log/`. To allow Logstash to access these logs, g
 usermod -aG adm logstash
 ```
 
-Apache has two types of logs (access and error), so we will create two individual pipelines 
+Apache has two types of logs (access and error), so we will create two individual pipelines for each type of error.
+
