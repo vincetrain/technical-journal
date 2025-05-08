@@ -117,7 +117,7 @@ cp /etc/elasticsearch/certs/http_ca.crt /etc/logstash/certs
 Logstash pipelines are, by default, stored in `/etc/logstash/conf.d`, but it is possible to store pipelines elsewhere.
 
 To run pipelines at a specified directory, us the `-f` flag and point it towards the pipeline path.
-> It may be worth adding `/usr/share/logstash/bin` to PATH for convenience
+> It may be worth adding `/usr/share/logstash/bin` to PATH for convenience.
 
 If using Vim, ensure the following configurations are set for tabs to be recognized and usable in pipelines
 ```vimrc
@@ -168,6 +168,7 @@ output {
 	}
 }
 ```
+> Also consider adding the `logstash` group to the user who will be running Logstash if running via its binary (requires re-login/reboot to work).
 ## Filebeat configuration
 
 ## Logging Apache2 Events
