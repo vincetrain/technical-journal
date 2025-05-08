@@ -4,6 +4,7 @@
 
 [Secure communication with an on-premise Elasticsearch cluster](https://www.elastic.co/docs/reference/logstash/secure-connection#es-security-onprem)  
 
+[Secure communication with Logstash (Filebeat)](https://www.elastic.co/docs/reference/beats/filebeat/configuring-ssl-logstash)
 ## Preparing apt Repository
 Install signing key
 ```sh
