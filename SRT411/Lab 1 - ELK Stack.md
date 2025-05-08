@@ -169,9 +169,9 @@ output {
 }
 ```
 > Also consider adding the `logstash` group to the user who will be running Logstash if running via its binary (requires re-login/reboot to work).
-## Filebeat configuration
+## Filebeat Configuration
 
-## Logging Apache2 Events
+### Logging Apache2 Events
 System logs are stored at `/var/log/`. To allow Logstash to access these logs, give the `logstash` user the `adm` role.
 ```sh
 usermod -aG adm logstash
