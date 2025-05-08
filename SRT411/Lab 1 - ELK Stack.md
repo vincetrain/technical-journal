@@ -70,7 +70,12 @@ Gets verification code for Kibana enrollment.
 bin/kibana-verification-code
 ```
 ### Stack Monitoring
-To setup stack monitoring run the `bin/kibana`
+To setup stack monitoring run the `bin/kibana-encryption-keys` command, and add the generated keys to `/etc/kibana/kibana.yml`
+```sh
+bin/kibana-encryption-keys generate
+```
+
+After this is done, stack monitoring can be configured easily in Kibana's "Management>Stack Monitoring" section.
 ## Installing & Configuring Logstash
 We can install the `logstash` package with apt.
 
