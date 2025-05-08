@@ -69,6 +69,11 @@ Gets verification code for Kibana enrollment.
 ```sh
 bin/kibana-verification-code
 ```
+### Setup SSL with Kibana
+Generate local CA using elasticsearch-certutil
+```sh
+elasticsearch/bin/elasticsearch-certutil 
+```
 ### Stack Monitoring
 To setup stack monitoring run the `bin/kibana-encryption-keys` command, and add the generated keys to `/etc/kibana/kibana.yml`
 ```sh
