@@ -170,6 +170,9 @@ output {
 ```
 > Also consider adding the `logstash` group to the user who will be running Logstash if running via its binary (requires re-login/reboot to work).
 ## Filebeat Configuration
+For Filebeat to work over SSL, use `elasticsearch/bin/elasticsearch-certutil` to create a certificate.
+
+Configure `filebeat.yml` to 
 
 ### Logging Apache2 Events
 System logs are stored at `/var/log/`. To allow Logstash to access these logs, give the `logstash` user the `adm` role.
