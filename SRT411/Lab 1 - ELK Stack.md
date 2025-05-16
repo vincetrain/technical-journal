@@ -5,6 +5,15 @@
 [Secure communication with an on-premise Elasticsearch cluster](https://www.elastic.co/docs/reference/logstash/secure-connection#es-security-onprem)  
 
 [Secure communication with Logstash (Filebeat)](https://www.elastic.co/docs/reference/beats/filebeat/configuring-ssl-logstash)
+
+[Logstash grok pattern for apache error log](https://discuss.elastic.co/t/logstash-grok-pattern-for-apache-error-log/337676)
+
+[Grok Filter Configuration Options (Logstash)](https://www.elastic.co/docs/reference/logstash/plugins/plugins-filters-grok#plugins-filters-grok-options)
+
+[Apache module (Filebeat)](https://www.elastic.co/docs/reference/beats/filebeat/filebeat-module-apache)
+
+[logstash-patterns-core](https://github.com/logstash-plugins/logstash-patterns-core/blob/main/patterns/ecs-v1/httpd)
+
 ## Preparing apt Repository
 Install signing key
 ```sh
@@ -192,6 +201,8 @@ We can enable, list, or disable any modules using `filebeat modules`.
 ### Logging Apache2 Events
 Apache has two types of logs (access and error), so we will create a pipeline that logs both errors into their own respective index.
 
+Before configuring any pipelines, ensure Logstash has a user with sufficient roles to manage indices in Elasticsearch.
+
 First lets configure our Logstash pipeline to input from Filebeat
 ```conf
 input {
@@ -248,3 +259,7 @@ output {
     }
 }
 ```
+
+We can now enable the Apache module inside of Filebeat with `filebeat modules enable apache`. Make sure the Apache module is configured to have both access and error logging enabled.
+
+To test that this pipeline is working, we can `curl` the Apache server to test access logging, and run `printf "BADREQUEST / HTTP/1.1\r\nHost: localhost\r\n\r\n" | nc localhost 80`  to test error logging.
