@@ -197,11 +197,14 @@ First lets configure our Logstash pipeline to input from Filebeat
 input {
   beats {
     port => 5044
-    ssl => true
+    ssl_enabled => true
     ssl_certificate_authorities => ["/path/to/ca.crt"]
     ssl_certificate => "/path/to/logstash.crt"
     ssl_key => "/path/to/logstash.key"
-    ssl_verify_mode => "force_peer"
+    ssl_client_authentication => "required"
   }
 }
 ```
+> This opens port 5044 for Logstash to listen on. SSL authentication is required, and must match the CA certificate we provided
+
+We can now 
