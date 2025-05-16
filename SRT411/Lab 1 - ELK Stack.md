@@ -193,3 +193,15 @@ We can enable, list, or disable any modules using `filebeat modules`.
 Apache has two types of logs (access and error), so we will create a pipeline that logs both errors into their own respective index.
 
 First lets configure our Logstash pipeline to input from Filebeat
+```conf
+input {
+  beats {
+    port => 5044
+    ssl => true
+    ssl_certificate_authorities => ["/path/to/ca.crt"]
+    ssl_certificate => "/path/to/logstash.crt"
+    ssl_key => "/path/to/logstash.key"
+    ssl_verify_mode => "force_peer"
+  }
+}
+```
