@@ -208,3 +208,43 @@ input {
 > This opens port 5044 for Logstash to listen on. SSL authentication is required, and must match the CA certificate we provided
 
 We can now configure the filter for Logstash to parse the logs with
+```conf
+filter {
+	if [event][dataset] == "apache.access" {
+		grok {
+			match => {"message" => "%{HTTPD_COMBINEDLOG}"}
+		}
+	} else {
+		grok {
+			match => {"message" => "%{HTTPD_ERRORLOG}"}
+		}
+	}
+}
+```
+> Note the usage of conditionals to filter for log type
+
+Using the concept of conditionals above, we can put access and error logs into their own indices
+```conf
+output {
+    if [event][dataset] == "apache.access" {
+        elasticsearch {
+            hosts => ["https://192.168.76.1:9200"]
+            ssl_enabled => true
+            ssl_certificate_authorities => ["/etc/logstash/certs/http_ca.crt"]
+            user => "logstash"
+            password => "supersecurepassword"
+            index => "apache-10-access"
+        }
+    }
+    if [event][dataset] == "apache.error" {
+        elasticsearch {
+            hosts => ["https://192.168.76.1:9200"]
+            ssl_enabled => true
+            ssl_certificate_authorities => ["/etc/logstash/certs/http_ca.crt"]
+            user => "logstash"
+            password => "supersecurepassword"
+            index => "apache-10-error"
+        }
+    }
+}
+```
