@@ -91,6 +91,11 @@ Logstash configuration files can be found in `/etc/logstash/`.
 
 Logstash binaries can be found at `/usr/share/logstash/bin`.
 
+System logs are stored at `/var/log/`. To allow Logstash to access these logs, give the `logstash` user the `adm` role.
+```sh
+usermod -aG adm logstash
+```
+
 For Logstash, we add an Elasticsearch role with required permissions.
 ```HTTP
 POST /security/role/logstash_user
@@ -170,14 +175,21 @@ output {
 ```
 > Also consider adding the `logstash` group to the user who will be running Logstash if running via its binary (requires re-login/reboot to work).
 ## Filebeat Configuration
+Filebeat configurations are stored in `/etc/filebeat`.
+
 For Filebeat to work over SSL, use `elasticsearch/bin/elasticsearch-certutil` to create a certificate.
 
-Configure `filebeat.yml` to 
-
-### Logging Apache2 Events
-System logs are stored at `/var/log/`. To allow Logstash to access these logs, give the `logstash` user the `adm` role.
-```sh
-usermod -aG adm logstash
+Configure `filebeat.yml` to use these certificates and output to Logstash.
+```yml
+output.logstash:
+	hosts: ["logstash.server:5044"]
+	ssl.certificate_authorities: ["/path/to/ca.crt"]
+	ssl.certificate: "/path/to/filebeat.crt"
+	ssl.key: "/path/to/filebeat.key"
 ```
 
-Apache has two types of logs (access and error), so we will create two individual pipelines for each type of error.
+We can enable, list, or disable any modules using `filebeat modules`.
+### Logging Apache2 Events
+Apache has two types of logs (access and error), so we will create a pipeline that logs both errors into their own respective index.
+
+First lets configure our Logstash pipeline to input from Filebeat
