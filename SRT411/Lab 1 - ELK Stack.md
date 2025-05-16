@@ -207,4 +207,4 @@ input {
 ```
 > This opens port 5044 for Logstash to listen on. SSL authentication is required, and must match the CA certificate we provided
 
-We can now 
+We can now configure the filter for Logstash to parse the logs with
