@@ -71,10 +71,10 @@ Start by switching to the user that owns and will run Elasticsearch.
 ssh elasticsearch@localhost ## do NOT use su to switch users. SSH locally instead.
 ```
 
-We will store our Elasticsearch service inside of `/home/elasticsearch/.local/systemd/user/`.
+We will store our Elasticsearch service inside of `/home/elasticsearch/.local/share/systemd/user/`.
 ```bash
-mkdir -p ~/.local/systemd/user/
-touch ~/.local/systemd/user/elasticsearch.service
+mkdir -p ~/.local/share/systemd/user/
+touch ~/.local/share/systemd/user/elasticsearch.service
 ```
 
 Define the service to run Elasticsearch
