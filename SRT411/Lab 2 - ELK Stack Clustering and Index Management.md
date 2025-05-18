@@ -78,12 +78,15 @@ Define the service to run Elasticsearch
 Description=Elasticsearch
 [Service]
 ExecStart=/path/to/elasticsearch/bin/elasticsearch
+[Install]
+WantedBy=default.target
 ```
 
 To perform operations on this service, we can use:
 ```bash
 systemctl [start/stop/restart] --user
 ```
+> These only work when ran as the user owning the service, or in this case the `elasticsearch` user.
 
 To enable this service to run on startup, we must first enable the service and allow the user to linger.
 ```bash
