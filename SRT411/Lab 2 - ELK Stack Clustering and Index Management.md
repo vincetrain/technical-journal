@@ -1,8 +1,14 @@
 [Add and Remove Elasticsearch Nodes](https://www.elastic.co/docs/deploy-manage/maintenance/add-and-remove-elasticsearch-nodes)
-[Node roles](https://www.elastic.co/docs/deploy-manage/distributed-architecture/clusters-nodes-shards/node-roles)
-[Cluster-level shard allocation filtering](https://www.elastic.co/docs/reference/elasticsearch/configuration-reference/cluster-level-shard-allocation-routing-settings#cluster-shard-allocation-filtering)
-[systemd/User]
 
+[Node roles](https://www.elastic.co/docs/deploy-manage/distributed-architecture/clusters-nodes-shards/node-roles)
+
+[Cluster-level shard allocation filtering](https://www.elastic.co/docs/reference/elasticsearch/configuration-reference/cluster-level-shard-allocation-routing-settings#cluster-shard-allocation-filtering)
+
+[systemd/User How it works](https://wiki.archlinux.org/title/Systemd/User#How_it_works)
+
+[systemd.unit](https://man.archlinux.org/man/systemd.unit.5.en)
+
+[systemd.service](https://man.archlinux.org/man/systemd.service.5)
 ## Creating a Master Node
 Configure Elasticsearch to run as a master node by including the following inside of `/etc/elasticsearch/elasticsearch.yml`:
 ```yml
