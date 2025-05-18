@@ -117,6 +117,33 @@ loginctl enable-linger elasticsearch
 ```
 
 ## Index Management
+Create an index template that applying property mappings on indexes that match a certain pattern
+```http
+PUT _index_template/template_name
+{
+    "index_patterns": ["pattern-of-index-name*"],
+    "template": {
+        "mappings": {
+            "properties": {
+                "integer": {
+                    "type": "integer"
+                },
+                "category": {
+                    "type": "keyword"
+                },
+                "date": {
+                    "type": "date",
+                    "format": "dd-mm-yyyy"
+                },
+                "text": {
+                    "type": "text"
+                }
+            }
+        }
+    }
+}
+```
+
 To create a new index, the following PUT request can be sent.
 `PUT /indexname`
 
@@ -130,3 +157,4 @@ POST /indexname/_doc
 	"date": "2025-01-01"
 }
 ```
+
