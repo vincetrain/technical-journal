@@ -31,7 +31,7 @@ PUT _cluster/settings
 	}
 }
 ```
-> This tells Elasticsearch to exclude shard allocation from the node residing at the provided IP address.
+> This tells Elasticsearch to exclude shard allocation from the node residing at the provided IP address, and re-allocates shards to other existing nodes.
 > Keep an eye on the Stack Monitoring page as it provides crucial information about how many shards are stored on each node. Once the master node has 0 shards and has Green health, it is okay to change `node.roles` and restart.
 ## Creating a Data Node
 Install and configure Elasticsearch on a new machine. It is recommended to **install via the archive** as installing from a pre-packaged Debian makes this process more complicated than needed.
