@@ -196,6 +196,8 @@ We can enable, list, or disable any modules using `filebeat modules`.
 ### Logging Apache2 Events
 Apache has two types of logs (access and error), so we will create a pipeline that logs both errors into their own respective index.
 
+Filebeat comes with the a module called Apache. Configure and enable this beforehand.
+
 Before configuring any pipelines, ensure Logstash has a user with sufficient roles to manage indices in Elasticsearch.
 
 First lets configure our Logstash pipeline to input from Filebeat
@@ -236,7 +238,7 @@ output {
         elasticsearch {
             hosts => ["https://[url-of-elasticsearch]:9200"]
             ssl_enabled => true
-            ssl_certificate_authorities => ["/etc/logstash/certs/http_ca.crt"]
+            ssl_certificate_authorities => ["/path/to/http_ca.crt"]
             user => "logstash"
             password => "supersecurepassword"
             index => "apache-10-access"
@@ -244,9 +246,9 @@ output {
     }
     if [event][dataset] == "apache.error" {
         elasticsearch {
-            hosts => ["https://192.168.76.1:9200"]
+            hosts => ["https://[url-of-elasticsearch]:9200"]
             ssl_enabled => true
-            ssl_certificate_authorities => ["/etc/logstash/certs/http_ca.crt"]
+            ssl_certificate_authorities => ["/path/to/http_ca.crt"]
             user => "logstash"
             password => "supersecurepassword"
             index => "apache-10-error"

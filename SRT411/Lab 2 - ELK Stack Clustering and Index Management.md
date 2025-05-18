@@ -27,7 +27,7 @@ If you already have shard data on the node, have at least 2 data nodes connected
 PUT _cluster/settings
 {
 	"persistent": {
-		"cluster.routing.allocation.exclude._ip": "ip-address-of-master-with-shards"
+		"cluster.routing.allocation.exclude._ip": "ip-of-master-with-shards"
 	}
 }
 ```
