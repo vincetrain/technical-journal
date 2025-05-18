@@ -110,3 +110,5 @@ To enable this service to run on startup, we must first enable the service and a
 systemctl enable --user elasticsearch
 loginctl enable-linger elasticsearch
 ```
+
+## Index Templates
