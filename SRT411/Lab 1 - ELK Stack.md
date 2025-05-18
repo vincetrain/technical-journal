@@ -234,7 +234,7 @@ Using the concept of conditionals above, we can put access and error logs into t
 output {
     if [event][dataset] == "apache.access" {
         elasticsearch {
-            hosts => ["https://192.168.76.1:9200"]
+            hosts => ["https://[url-of-elasticsearch]:9200"]
             ssl_enabled => true
             ssl_certificate_authorities => ["/etc/logstash/certs/http_ca.crt"]
             user => "logstash"
