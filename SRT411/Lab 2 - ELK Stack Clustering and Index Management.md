@@ -29,7 +29,7 @@ node.roles: master,ingest,remote_cluster_client
 
 If you already have shard data on the node, have at least 2 data nodes connected (by default, Elasticsearch will have 2 replicas of shards) and create the following PUT request to Elasticsearch.
 ```http
-PUT _cluster/settings
+PUT /_cluster/settings
 {
 	"persistent": {
 		"cluster.routing.allocation.exclude._ip": "ip-of-master-with-shards"
