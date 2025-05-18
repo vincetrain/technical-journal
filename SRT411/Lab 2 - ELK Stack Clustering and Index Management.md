@@ -62,7 +62,7 @@ bin/elasticsearch --enrollment-token [paste-enrollment-token-here]
 This portion will work for those who are using `systemd`.
 
 Start by switching to the user that owns and will run Elasticsearch.
-```sh
+```bash
 ssh elasticsearch@localhost ## do NOT use su to switch users. SSH locally instead.
 ```
 
@@ -80,13 +80,13 @@ Description=Elasticsearch
 ExecStart=/path/to/elasticsearch/bin/elasticsearch
 ```
 
-To run this service, we can use:
+To perform operations on this service, we can use:
 ```bash
-systemctl start --user elasticsearch
+systemctl [start/stop/restart] --user
 ```
 
 To enable this service to run on startup, we must first enable the service and allow the user to linger.
-```
+```bash
 systemctl enable --user elasticsearch
 loginctl enable-linger elasticsearch
 ```
