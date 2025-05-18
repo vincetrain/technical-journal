@@ -7,8 +7,9 @@ Configure Elasticsearch to run as a master node by including the following insid
 #
 # Configure node roles:
 #
-node.roles: master
+node.roles: master,ingest
 ...
 ```
 > This works when there is NO EXISTING SHARD DATA on the node.
+> The ingest role allows monitoring of stack manage
 
