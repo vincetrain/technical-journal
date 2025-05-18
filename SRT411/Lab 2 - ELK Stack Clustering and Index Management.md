@@ -21,7 +21,8 @@ Install and configure Elasticsearch on a new machine. It is recommended to insta
 
 In this installation version of Elasticsearch, configuration files (like `elasticsearch.yml`) will be in `/config` of where Elasticsearch was installed to. 
 
-I would recommend creating a new user and storing the Elasticsearch archive inside of the user's home directory. A systemd service will be created to run Elasticsearch on startup.
+I would recommend creating a new Linux user and storing the Elasticsearch archive inside of the user's home directory. A systemd service will be created to run Elasticsearch on startup.
+> The rest of this section follows installing Elasticsearch as Linux user `elasticsearch`.
 
 Before attempting to join this node to the cluster, consider curling or pinging the Elasticsearch master node to ensure connectivity.
 
@@ -60,5 +61,9 @@ bin/elasticsearch --enrollment-token [paste-enrollment-token-here]
 ### Starting Elasticsearch as a service
 This portion will work for those who are using `systemd`.
 
-We will store our Elasticsearch service inside of `/etc/systemd/user`.
-
+We will store our Elasticsearch service inside of `/home/elasticsearch/.local/systemd/user/`.
+```sh
+ssh elasticsearch@localhost ## do NOT use su to switch users. SSH locally instead.
+mkdir -p ~/.local/systemd/user/
+touch ~/.local/systeme
+```
