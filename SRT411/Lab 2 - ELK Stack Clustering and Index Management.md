@@ -31,11 +31,11 @@ PUT _cluster/settings
 	}
 }
 ```
-> This tells Elasticsearch to exclude shard allocation from the machine residing at the provided IP address.
-> Keep an eye on 
+> This tells Elasticsearch to exclude shard allocation from the node residing at the provided IP address.
+> Keep an eye on the Stack Monitoring page as it provides crucial information about how many shards are stored on each node. Once the master node has 0 shards and has Green health, it is okay to change `node.roles` and restart.
 ## Creating a Data Node
-Install and configure Elasticsearch on a new machine. It is recommended to install via the packed archive as installing from a pre-packaged Debian makes this process more complicated than needed.
-> ENSURE VERSIONS ARE COMPATIBLE WITH OR MATCH THE DATA NODE!
+Install and configure Elasticsearch on a new machine. It is recommended to **install via the archive** as installing from a pre-packaged Debian makes this process more complicated than needed.
+> ENSURE VERSIONS ARE COMPATIBLE WITH OR MATCH THE MASTER NODE!
 
 In this installation version of Elasticsearch, configuration files (like `elasticsearch.yml`) will be in `/config` of where Elasticsearch was installed to. 
 
@@ -74,7 +74,7 @@ Now copy this enrollment token onto the data node and use the `bin/elasticsearch
 bin/elasticsearch --enrollment-token [paste-enrollment-token-here]
 ```
 
-### Starting Elasticsearch as a service
+### Configuring Elasticsearch as a service
 This portion will work for those who are using `systemd`.
 
 Start by switching to the user that owns and will run Elasticsearch.
@@ -100,7 +100,7 @@ WantedBy=default.target
 
 To perform operations on this service, we can use:
 ```bash
-systemctl [start/stop/restart] --user
+systemctl [verb] --user
 ```
 > These only work when ran as the user owning the service, or in this case the `elasticsearch` user.
 
