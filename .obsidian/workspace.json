@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SRT411/Lab 2 - ELK Stack Cluster.md",
+                "file": "SRT411/Lab 2 - ELK Stack Clustering and Index Management.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lab 2 - ELK Stack Cluster"
+              "title": "Lab 2 - ELK Stack Clustering and Index Management"
             }
           }
         ],
@@ -197,7 +197,7 @@
   "active": "0af27f223e1f5f03",
   "lastOpenFiles": [
     "SRT411/Lab 1 - ELK Stack.md",
-    "SRT411/Lab 2 - ELK Stack Cluster.md",
+    "SRT411/Lab 2 - ELK Stack Clustering and Index Management.md",
     "SRT411",
     "SRT411 Lab 2.md",
     "Untitled 1",
