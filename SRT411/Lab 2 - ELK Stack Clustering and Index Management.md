@@ -60,3 +60,4 @@ bin/elasticsearch --enrollment-token [paste-enrollment-token-here]
 ### Starting Elasticsearch as a service
 This portion will work for those who are using `systemd`.
 
+We will store our Elasticsearch service inside of `/`
