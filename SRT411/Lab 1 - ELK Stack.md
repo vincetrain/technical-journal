@@ -14,6 +14,11 @@
 
 [logstash-patterns-core](https://github.com/logstash-plugins/logstash-patterns-core/blob/main/patterns/ecs-v1/httpd)
 
+[Query DSL](https://www.elastic.co/docs/explore-analyze/query-filter/languages/querydsl)
+
+[Delete by query](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-delete-by-query)
+
+
 **NOTE: this follows the installation of the ELK stack using apt repositories. It may be more worth installing each component of the ELK stack using the official archives instead as it avoids any potential issues with system permissions.**
 ## Preparing apt Repository
 Install signing key
