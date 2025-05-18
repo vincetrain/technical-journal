@@ -22,6 +22,17 @@ node.roles: master,ingest,remote_cluster_client
 > This works when there is NO EXISTING SHARD DATA on the node.
 > The `ingest` and `remote_cluster_client` roles allow monitoring of stack management.
 
+If you already have shard data on the node, have at least 2 data nodes connected (by default, Elasticsearch will have 2 replicas of shards) and create the following PUT request to Elasticsearch.
+```http
+PUT _cluster/settings
+{
+	"persistent": {
+		"cluster.routing.allocation.exclude._ip": "ip-address-of-master-with-shards"
+	}
+}
+```
+> This tells Elasticsearch to exclude shard allocation from the machine residing at the provided IP address.
+> Keep an eye on 
 ## Creating a Data Node
 Install and configure Elasticsearch on a new machine. It is recommended to install via the packed archive as installing from a pre-packaged Debian makes this process more complicated than needed.
 > ENSURE VERSIONS ARE COMPATIBLE WITH OR MATCH THE DATA NODE!
