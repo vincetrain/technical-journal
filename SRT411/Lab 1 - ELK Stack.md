@@ -14,7 +14,7 @@
 
 [logstash-patterns-core](https://github.com/logstash-plugins/logstash-patterns-core/blob/main/patterns/ecs-v1/httpd)
 
-**NOTE: this journal entry follows installation of the ELK stack using apt repositories. It may be more worth installing each component of the ELK stack using the official archives instead as it avoids any potential issues with system permissions.**
+**NOTE: this follows the installation of the ELK stack using apt repositories. It may be more worth installing each component of the ELK stack using the official archives instead as it avoids any potential issues with system permissions.**
 ## Preparing apt Repository
 Install signing key
 ```sh
@@ -180,7 +180,6 @@ output {
 ```
 > Also consider adding the `logstash` group to the user who will be running Logstash if running via its binary (requires re-login/reboot to work).
 ## Filebeat Configuration
-Filebeat configurations are stored in `/etc/filebeat`.
 
 For Filebeat to work over SSL, use `elasticsearch/bin/elasticsearch-certutil` to create a certificate.
 

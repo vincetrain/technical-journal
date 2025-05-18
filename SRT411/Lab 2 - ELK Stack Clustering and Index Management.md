@@ -1,3 +1,6 @@
+[Add and Remove Elasticsearch Nodes](https://www.elastic.co/docs/deploy-manage/maintenance/add-and-remove-elasticsearch-nodes)
+[Node roles](https://www.elastic.co/docs/deploy-manage/distributed-architecture/clusters-nodes-shards/node-roles)
+
 
 ## Creating a Master Node
 Configure Elasticsearch to run as a master node by including the following inside of `/etc/elasticsearch/elasticsearch.yml`:
@@ -13,7 +16,7 @@ node.roles: master,ingest,remote_cluster_client
 > The `ingest` and `remote_cluster_client` roles allow monitoring of stack management.
 
 ## Creating a Data Node
-Install and configure Elasticsearch on a new machine. It is recommended to install via the packed archive (or use Docker) as installing from a pre-packaged Debian makes this process more complicated than needed.
+Install and configure Elasticsearch on a new machine. It is recommended to install via the packed archive as installing from a pre-packaged Debian makes this process more complicated than needed.
 > ENSURE VERSIONS ARE COMPATIBLE WITH OR MATCH THE DATA NODE!
 
 In this installation version of Elasticsearch, configuration files (like `elasticsearch.yml`) will be in `/config` of where Elasticsearch was installed to. 
@@ -22,6 +25,7 @@ I would recommend creating a new user and storing the Elasticsearch archive insi
 
 Before attempting to join this node to the cluster, consider curling or pinging the Elasticsearch master node to ensure connectivity.
 
+### Configuring the node and joining the cluster
 For this node to connect to a cluster as a data node, modify the configuration of `elasticsearch.yml` to define the `cluster.name` (must match with the cluster we are joining), `node.name` (must be unique), and the `node.roles` (set this to data). Everything else may be left untouched or configured however.
 ```yml
 ...
@@ -52,3 +56,7 @@ Now copy this enrollment token onto the data node and use the `bin/elasticsearch
 ```sh
 bin/elasticsearch --enrollment-token [paste-enrollment-token-here]
 ```
+
+### Starting Elasticsearch as a service
+This portion will work for those who are using `systemd`.
+
