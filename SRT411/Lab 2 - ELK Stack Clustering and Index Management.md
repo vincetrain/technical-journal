@@ -111,4 +111,17 @@ systemctl enable --user elasticsearch
 loginctl enable-linger elasticsearch
 ```
 
-## Index Templates
+## Index Management
+To create a new index, the following PUT request can be sent.
+`PUT /indexname`
+
+To create and input a new document, the following POST request may be sent.
+```http
+POST /indexname/_doc
+{
+	"property1": "value",
+	"property2": ["value1", "value2"],
+	"property3": 65,
+	"date": "2025-01-01"
+}
+```
