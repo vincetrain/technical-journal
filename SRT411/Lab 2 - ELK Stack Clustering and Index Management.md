@@ -52,8 +52,6 @@ node.name: srt411data1
 #
 node.roles: data
 ```
-> This is the bare minimum Elasticsearch configuration required to join a cluster as a data node. 
-> You may also define your own security features, but enrolling a node with an enrollment token will automatically configure security options.
 
 On an Elasticsearch **master node**, run the `bin/elasticsearch-create-enrollment-token` binary to generate an Elasticsearch enrollment token to be used for joining this node.
 ```sh
