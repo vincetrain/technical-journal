@@ -81,6 +81,7 @@ Start by switching to the user that owns and will run Elasticsearch.
 ```bash
 ssh elasticsearch@localhost ## do NOT use su to switch users. SSH locally instead.
 ```
+> If you don't want to have an SSH server running on the machine, you can use `machinectl` to change users instead (or of course, login to the user in another TTY instance)
 
 We will store our Elasticsearch service inside of `/home/elasticsearch/.local/share/systemd/user/`.
 ```bash
