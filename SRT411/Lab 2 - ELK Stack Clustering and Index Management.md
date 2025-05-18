@@ -11,5 +11,5 @@ node.roles: master,ingest
 ...
 ```
 > This works when there is NO EXISTING SHARD DATA on the node.
-> The ingest role allows monitoring of stack manage
+> The ingest role allows monitoring of stack management.
 
