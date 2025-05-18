@@ -9,6 +9,11 @@
 [systemd.unit](https://man.archlinux.org/man/systemd.unit.5.en)
 
 [systemd.service](https://man.archlinux.org/man/systemd.service.5)
+
+[Field data type](https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/field-data-types#text-search-types)
+
+[Templates](https://www.elastic.co/docs/manage-data/data-store/templates)
+
 ## Creating a Master Node
 Configure Elasticsearch to run as a master node by including the following inside of `/etc/elasticsearch/elasticsearch.yml`:
 ```yml
