@@ -125,24 +125,11 @@ cp /path/to/http_ca.crt /path/to/logstash/certs/
 > `/path/to/logstash/certs/` refers to the directory where you want to store your Logstash. I typically keep them in `config/certs/`.
 
 ### Stack Monitoring
-For monitoring, it is worth secure its HTTP API to work over HTTPS.
-
-Convert existing `.crt` and `.key` files into `.p12`.
-```bash
-openssl pkcs12 -export -in /path/to/logstash.crt -inkey /path/to/logstash.key -out logstash.p12 -name logstaash -password pass:supersecurepassword
-```
-> Logstash only supports p12 format.. Alternatively, consider storing the original certificates in p12 format instead.
-> These certificates refer to the one made in [Logstash Pipelines](Lab%201%20-%20ELK%20Stack#Logstash%20Pipelines)
-
-Configure Logstash to use the p12 keystore for SSL
-```yml
-...
-api.ssl.enabled: true
-api.ssl.keystore.path: /path/to/logstash.p12
-api.ssl.keystore.password: "supersecurepassword"
-```
-
 To monitor Logstash, we can use Metricbeat.
+
+By default, Logstash exposes its HTTP API in localhost and is not secured by SSL. Because of this, Metricbeat should be installed on the same node as Logstash.
+
+By default, Metricbeat modules can be accessed in the `/modules.d` 
 
 After installing Metricbeat, we can use the built in Logstash module to monitor Logstash.
 ```bash
