@@ -91,9 +91,8 @@ bin/kibana-encryption-keys generate
 
 After this is done, stack monitoring can be configured easily in Kibana's "Management>Stack Monitoring" section.
 ## Installing & Configuring Logstash
-We can install the `logstash` package with apt.
 
-Install Logstash on machines that you wish to log from (i.e, an Apache web server).
+Logstash should be installed on its own node, or at least separate from the application being logged it can be hardware intensive due to its complexity.
 
 System logs are stored at `/var/log/`. To allow Logstash to access these logs, give the `logstash` user the `adm` role.
 ```sh
@@ -126,6 +125,25 @@ cp /path/to/http_ca.crt /path/to/logstash/certs/
 > `/path/to/logstash/certs/` refers to the directory where you want to store your Logstash. I typically keep them in `config/certs/`.
 
 ### Stack Monitoring
+For monitoring, it is worth secure its HTTP API to work over HTTPS.
+
+Set the Logstash keystore password environment variable.
+```bash
+mkdir -p /etc/sysconfig
+touch -p /etc/sysconfig/logstash
+chown root:root /etc/sysconfig/logstash
+chmod 600 /etc/sysconfig/logstash
+echo LOGSTASH_KEYSTORE_PASS=supersecurepassword > /etc/sysconfig/logstash
+```
+
+Create a Logstash keystore
+```bash
+bin/logstash-keystore create --path.settings /path/to/config
+```
+>`path.settings` should point to the directory containing `logstash.yml`.
+
+
+
 To monitor Logstash, we can use Metricbeat.
 
 After installing Metricbeat, we can use the built in Logstash module to monitor Logstash.
