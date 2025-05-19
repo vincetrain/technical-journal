@@ -14,6 +14,10 @@
 
 [Templates](https://www.elastic.co/docs/manage-data/data-store/templates)
 
+[Query DSL](https://www.elastic.co/docs/explore-analyze/query-filter/languages/querydsl)
+
+[Delete by query](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-delete-by-query)
+
 ## Creating a Master Node
 Configure Elasticsearch to run as a master node by including the following inside of `/etc/elasticsearch/elasticsearch.yml`:
 ```yml
