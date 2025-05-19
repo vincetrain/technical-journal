@@ -14,6 +14,10 @@
 
 [logstash-patterns-core](https://github.com/logstash-plugins/logstash-patterns-core/blob/main/patterns/ecs-v1/httpd)
 
+[Collect Logstash monitoring data with Metricbeat](https://www.elastic.co/docs/reference/logstash/monitoring-with-metricbeat)
+
+[Configure SSL (Metricbeat)](https://www.elastic.co/docs/reference/beats/metricbeat/configuration-ssl#ssl-common-config)
+
 
 **NOTE: this follows the installation of the ELK stack using apt repositories. It may be more worth installing each component of the ELK stack using the official archives instead as it avoids any potential issues with system permissions.**
 ## Preparing apt Repository
@@ -242,6 +246,8 @@ output.logstash:
 
 We can enable, list, or disable any modules using `filebeat modules`.
 ### Stack Monitoring
+Filebeat has built in reporting for metrics, and can deliver these metrics directly to Elasticsearch.
+
 
 
 ## Logging Apache2 Events
