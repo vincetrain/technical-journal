@@ -18,6 +18,7 @@
 
 [Configure SSL (Metricbeat)](https://www.elastic.co/docs/reference/beats/metricbeat/configuration-ssl#ssl-common-config)
 
+[Using internal collection to send monitoring data](https://www.elastic.co/docs/reference/beats/filebeat/monitoring-internal-collection)
 
 **NOTE: this follows the installation of the ELK stack using apt repositories. It may be more worth installing each component of the ELK stack using the official archives instead as it avoids any potential issues with system permissions.**
 ## Preparing apt Repository
