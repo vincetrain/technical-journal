@@ -131,6 +131,8 @@ By default, Logstash exposes its HTTP API in localhost and is not secured by SSL
 
 By default, Metricbeat modules can be accessed in the `/modules.d` directory, or `/etc/metricbeat/modules.d` 
 
+`metricbeat.yml` Can be found in the install directory of Metricbeat, or `/etc/metricbeat`
+
 After installing Metricbeat, we can use the built in Logstash module to monitor Logstash.
 ```bash
 metricbeat modules list
