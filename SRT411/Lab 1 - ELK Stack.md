@@ -129,6 +129,13 @@ To monitor Logstash, we can use Metricbeat.
 
 By default, Logstash exposes its HTTP API in localhost and is not secured by SSL. Because of this, Metricbeat should be installed on the same node as Logstash.
 
+To further secure our Logstash API, we can define some basic authentication credentials in `logstash.yml`
+```yaml
+api.auth.type: basic
+api.auth.basic.username: "username"
+api.auth.basic.password: "supersecurepassword"
+```
+
 By default, Metricbeat modules can be accessed in the `/modules.d` directory, or `/etc/metricbeat/modules.d` 
 
 `metricbeat.yml` Can be found in the install directory of Metricbeat, or `/etc/metricbeat`
@@ -140,7 +147,7 @@ metricbeat module enable logstash-xpack
 ```
 > Consider disabling system metrics `metricbeat modules disable system`
 
-
+Modify the logstash-xpack.
 
 ### Logstash Pipelines
 Logstash pipelines are, by default, stored in `/etc/logstash/conf.d`, but it is possible to store pipelines elsewhere.
