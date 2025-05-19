@@ -129,7 +129,7 @@ To monitor Logstash, we can use Metricbeat.
 
 By default, Logstash exposes its HTTP API in localhost and is not secured by SSL. Because of this, Metricbeat should be installed on the same node as Logstash.
 
-By default, Metricbeat modules can be accessed in the `/modules.d` 
+By default, Metricbeat modules can be accessed in the `/modules.d` directory, or `/etc/metricbeat/modules.d` 
 
 After installing Metricbeat, we can use the built in Logstash module to monitor Logstash.
 ```bash
