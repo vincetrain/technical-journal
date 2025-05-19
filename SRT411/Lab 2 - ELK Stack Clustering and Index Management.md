@@ -31,7 +31,7 @@ node.roles: master,ingest,remote_cluster_client
 > This works when there is NO EXISTING SHARD DATA on the node.
 > The `ingest` and `remote_cluster_client` roles allow monitoring of stack management.
 
-If you already have shard data on the node, have at least 2 data nodes connected (by default, Elasticsearch will have 2 replicas of shards) and create the following PUT request to Elasticsearch.
+If you already have shard data on the node, have at least 2 data nodes connected (by default, Elasticsearch will have 2 replicas of shards) and send the following PUT request to Elasticsearch.
 ```http
 PUT /_cluster/settings
 {
@@ -164,3 +164,11 @@ POST /indexname/_doc
 }
 ```
 
+## JVM Options
+JVM options can be changed by creating a new `*.options` file inside of `elasticsearch/config/jvm.options.d`, and including JVM arguments inside of the new file.
+
+Change JVM minimum and maximum memory heaps.
+```options
+-Xmx4G
+-Xms4G
+```
