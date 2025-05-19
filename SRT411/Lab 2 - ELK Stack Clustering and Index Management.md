@@ -52,7 +52,6 @@ I would recommend creating a new Linux user and storing the Elasticsearch archiv
 > The rest of this section follows installing Elasticsearch as Linux user `elasticsearch`.
 
 Before attempting to join this node to the cluster, consider curling or pinging the Elasticsearch master node to ensure connectivity.
-
 ### Configuring the node and joining the cluster
 For this node to connect to a cluster as a data node, modify the configuration of `elasticsearch.yml` to define the `cluster.name` (must match with the cluster we are joining), `node.name` (must be unique), and the `node.roles` (set this to data). Everything else may be left untouched or configured however.
 ```yml
