@@ -15,7 +15,6 @@
 [logstash-patterns-core](https://github.com/logstash-plugins/logstash-patterns-core/blob/main/patterns/ecs-v1/httpd)
 
 [Collect Logstash monitoring data with Metricbeat](https://www.elastic.co/docs/reference/logstash/monitoring-with-metricbeat)
-
 [Configure SSL (Metricbeat)](https://www.elastic.co/docs/reference/beats/metricbeat/configuration-ssl#ssl-common-config)
 
 [Using internal collection to send monitoring data](https://www.elastic.co/docs/reference/beats/filebeat/monitoring-internal-collection)
