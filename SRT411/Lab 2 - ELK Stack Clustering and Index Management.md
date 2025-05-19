@@ -172,3 +172,4 @@ Change JVM minimum and maximum memory heaps.
 -Xmx4G
 -Xms4G
 ```
+> This could be stored inside of `elasticsearch/config/jvm.options.d/heapsize.options`.
