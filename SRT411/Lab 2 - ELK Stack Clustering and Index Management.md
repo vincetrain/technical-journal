@@ -149,7 +149,9 @@ PUT /_index_template/template_name
 ```
 
 To create a new index, the following PUT request can be sent.
-`PUT /indexname`
+```http
+PUT /indexname
+```
 
 To create and input a new document, the following POST request may be sent.
 ```http
