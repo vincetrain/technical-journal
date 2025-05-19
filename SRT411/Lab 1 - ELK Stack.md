@@ -127,22 +127,20 @@ cp /path/to/http_ca.crt /path/to/logstash/certs/
 ### Stack Monitoring
 For monitoring, it is worth secure its HTTP API to work over HTTPS.
 
-Set the Logstash keystore password environment variable.
+Convert existing `.crt` and `.key` files into `.p12`.
 ```bash
-mkdir -p /etc/sysconfig
-touch -p /etc/sysconfig/logstash
-chown root:root /etc/sysconfig/logstash
-chmod 600 /etc/sysconfig/logstash
-echo LOGSTASH_KEYSTORE_PASS=supersecurepassword > /etc/sysconfig/logstash
+openssl pkcs12 -export -in /path/to/logstash.crt -inkey /path/to/logstash.key -out logstash.p12 -name logstaash -password pass:supersecurepassword
 ```
+> Logstash only supports p12 format.. Alternatively, consider storing the original certificates in p12 format instead.
+> These certificates refer to the one made in [Logstash Pipelines](Lab%201%20-%20ELK%20Stack#Logstash%20Pipelines)
 
-Create a Logstash keystore
-```bash
-bin/logstash-keystore create --path.settings /path/to/config
+Configure Logstash to use the p12 keystore for SSL
+```yml
+...
+api.ssl.enabled: true
+api.ssl.keystore.path: /path/to/logstash.p12
+api.ssl.keystore.password: "supersecurepassword"
 ```
->`path.settings` should point to the directory containing `logstash.yml`.
-
-
 
 To monitor Logstash, we can use Metricbeat.
 
