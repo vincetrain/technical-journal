@@ -1,6 +1,5 @@
 ![cat being revived](https://i.imgur.com/ez6FASu.gif)
 <br>
-
 ^ me
 
 # technical-journal
