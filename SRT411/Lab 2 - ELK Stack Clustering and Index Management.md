@@ -20,7 +20,7 @@
 
 [\_cat](https://www.elastic.co/docs/api/doc/elasticsearch/group/endpoint-cat)
 
-[Index](_Index | Elasticsearch API documentation_. (n.d.). https://www.elastic.co/docs/api/doc/elasticsearch/group/endpoint-indices)
+[Index](https://www.elastic.co/docs/api/doc/elasticsearch/group/endpoint-indices)
 
 ## Creating a Master Node
 Configure Elasticsearch to run as a master node by including the following inside of `/etc/elasticsearch/elasticsearch.yml`:
