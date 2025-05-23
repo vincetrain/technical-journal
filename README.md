@@ -10,4 +10,4 @@ Feel free to fork and merge-request your own notes! I would love to have some co
 This repository **will not** contain answers to labs or assignments and rather serves as guidance for concepts that labs or assignments will reference.
 
 Courses:
-[SRT411](https://github.com/vincetrain/technical-journal/tree/main/SRT411)
+- [SRT411](https://github.com/vincetrain/technical-journal/tree/main/SRT411)
