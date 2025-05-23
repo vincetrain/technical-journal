@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "SRT411/Lab 2 - ELK Stack Clustering and Index Management.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lab 2 - ELK Stack Clustering and Index Management"
+              "title": "README"
             }
           },
           {
@@ -108,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SRT411/Lab 2 - ELK Stack Clustering and Index Management.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Lab 2 - ELK Stack Clustering and Index Management"
+              "title": "Backlinks for README"
             }
           },
           {
@@ -192,10 +192,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "68c59998afe12873",
+  "active": "ac9fec35f62c7c7c",
   "lastOpenFiles": [
-    "SRT411/Lab 1 - ELK Stack.md",
     "SRT411/Lab 2 - ELK Stack Clustering and Index Management.md",
+    "SRT411/Lab 1 - ELK Stack.md",
     "README.md",
     "cat-revival.gif",
     "().md",
