@@ -124,7 +124,7 @@ loginctl enable-linger elasticsearch
 ```
 
 ## Index Management
-Create an index template that applying property mappings on indexes that match a certain pattern
+Create an index template that applies property mappings on indexes that match a certain pattern
 ```http
 PUT /_index_template/template_name
 {

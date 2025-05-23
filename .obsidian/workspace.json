@@ -108,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "SRT411 Lab 1 - ELK Stack.md",
+                "file": "SRT411/Lab 2 - ELK Stack Clustering and Index Management.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for SRT411 Lab 1 - ELK Stack"
+              "title": "Backlinks for Lab 2 - ELK Stack Clustering and Index Management"
             }
           },
           {
@@ -175,8 +175,7 @@
               "title": "Source Control"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
@@ -193,7 +192,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "ac9fec35f62c7c7c",
+  "active": "68c59998afe12873",
   "lastOpenFiles": [
     "SRT411/Lab 1 - ELK Stack.md",
     "SRT411/Lab 2 - ELK Stack Clustering and Index Management.md",
