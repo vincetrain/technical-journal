@@ -18,9 +18,7 @@ Input file to netcat
 ```sh
 nc [ip] [port] < file.txt
 ```
-
-
-## scapy
+## ScaPy
 Sniff for packets
 ```python
 pkt = sniff(
@@ -30,7 +28,9 @@ pkt = sniff(
 )
 ```
 
-Send packet and sniff
+Send packet and sniff for first response
 ```python
-
+revc_pkt = sr1(send_pkt) # sends send_pkt, and stores the first response packet to recv_pkt
 ```
+### Packet Structuring
+Every packet in Scapy 
