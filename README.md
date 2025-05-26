@@ -11,3 +11,4 @@ This repository **will not** contain answers to labs or assignments and rather s
 
 Courses:
 - [SRT411](https://github.com/vincetrain/technical-journal/tree/main/SRT411)
+- [RIS440](https://github.com/vincetrain/technical-journal/tree/main/RIS440)
