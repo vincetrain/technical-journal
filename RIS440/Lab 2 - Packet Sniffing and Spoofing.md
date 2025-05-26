@@ -65,7 +65,8 @@ datalink.dst = 'dst-mac-address'
 ```python
 network = IP()
 network.src = 'src-ip-address'
-network.st = 'dst-ip-address'
+network.dst = 'dst-ip-address'
+network.ttl = 'ttl'
 ```
 #### TCP()
 ```python
@@ -79,4 +80,6 @@ transport.ack = ack_integer
 #### ICMP()
 ```python
 icmp = ICMP()
+icmp.code = codeint
+icmp.type = 'icmp-type'
 ```
