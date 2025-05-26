@@ -52,8 +52,9 @@ Entire packets in Scapy may be constructed as follows:
 pkt = Ether()/IP()/TCP()/Raw()
 ```
 > Layers can be removed where needed. 
-> For example, if we want to use ARP to determine destination address:
+> For example, if we want to use ARP to send TCP packets:
 > `pkt = IP()/TCP()
+> This works because, by omitting the Ether() layer, we force this packet to use ARP (or consult the ARP table to determine MAC address)
 #### Ether()
 ```python
 datalink = Ether()
@@ -75,7 +76,6 @@ transport.flags = flags_string
 transport.seq = sequence_integer
 transport.ack = ack_integer
 ```
-#### UDP()
 #### ICMP()
 ```python
 icmp = ICMP()
