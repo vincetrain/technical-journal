@@ -9,7 +9,7 @@ Start Splunk for the first time
 ```sh
 bin/splunk start --accept-license --answer-yes
 ```
-> Splunk will be available at over localhost:8000.
+> Splunk will be available at over 0.0.0.0:8000.
 
 Configure systemd service for Splunk
 ```service
@@ -23,3 +23,5 @@ ExecStop=/home/splunk/splunk/bin/splunk stop
 WantedBy=default.target
 ```
 > We enable RemainAfterExit as Splunk forks its own splunkd daemon. This is so we don't lose track of splunk (allows us to systemctl stop splunk).
+
+## Configuring Forwarders
