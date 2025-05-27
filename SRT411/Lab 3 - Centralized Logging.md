@@ -5,9 +5,9 @@ For this lab I will be installing Splunk Enterprise using the portable installat
 This involves creating a new user and a new systemctl service. Refer to [[Lab 2 - ELK Stack Clustering and Index Management#Configuring Elasticsearch as a service]].
 > This should be done AFTER we've started Splunk for the first time and accepted the license/created the administrator user.
 
-Start Splunk for the first time
+Start Splunk and configure for the first time
 ```sh
-bin/splunk start --accept-license --answer-yes
+bin/splunk start
 ```
 > Splunk will be available at over 0.0.0.0:8000.
 
@@ -27,3 +27,4 @@ WantedBy=default.target
 ## Configuring Forwarders
 In Splunk, navigate to `Settings > Forwarding and receiving > Configure receiving`, and configure a port to receive data on.
 
+Install the Universal Splunk Forwarder on 
