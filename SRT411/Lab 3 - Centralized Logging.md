@@ -33,7 +33,13 @@ Install the Universal Splunk Forwarder on the host that will be monitored.
 This lab will follow installation with Universal Splunk Forwarder's portable installation.
 > Refer to [[Lab 2 - ELK Stack Clustering and Index Management#Configuring Elasticsearch as a service]] and [[Lab 3 - Centralized Logging#Installing Splunk]] for setup instructions and the systemd service.
 
-Configure forwarding to Splunk receiving port
+Configure forwarding to Splunk receiver
 ```sh
-bin/splunk add forward-serv
+bin/splunk add forward-server [ip-of-splunk-receiver]:[receiving-port]
+```
+> Receiving port refers to the previously configured port in `Settings > Forwarding and receiving > Configure receiving`.
+
+Configure monitor inputs
+```sh
+bin/splunk add monitor [path-to-logs]
 ```
