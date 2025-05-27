@@ -1,3 +1,4 @@
+[Launch Splunk Web](https://docs.splunk.com/Documentation/Splunk/9.4.2/SearchTutorial/StartSplunk#Start_Splunk_Enterprise_on_Linux)
 ## Installing Splunk
 For this lab I will be installing Splunk Enterprise using the portable installation on the website.
 
@@ -22,4 +23,3 @@ ExecStop=/home/splunk/splunk/bin/splunk stop
 WantedBy=default.target
 ```
 > We enable RemainAfterExit as Splunk forks its own splunkd daemon. This is so we don't lose track of splunk (allows us to systemctl stop splunk).
-
