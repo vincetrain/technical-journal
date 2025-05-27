@@ -25,3 +25,5 @@ WantedBy=default.target
 > We enable RemainAfterExit as Splunk forks its own splunkd daemon. This is so we don't lose track of splunk (allows us to systemctl stop splunk).
 
 ## Configuring Forwarders
+In Splunk, navigate to `Settings > Forwarding and receiving > Configure receiving`, and configure a port to receive data on.
+
