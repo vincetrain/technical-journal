@@ -27,4 +27,13 @@ WantedBy=default.target
 ## Configuring Forwarders
 In Splunk, navigate to `Settings > Forwarding and receiving > Configure receiving`, and configure a port to receive data on.
 
-Install the Universal Splunk Forwarder on 
+### Linux
+Install the Universal Splunk Forwarder on the host that will be monitored.
+
+This lab will follow installation with Universal Splunk Forwarder's portable installation.
+> Refer to [[Lab 2 - ELK Stack Clustering and Index Management#Configuring Elasticsearch as a service]] and [[Lab 3 - Centralized Logging#Installing Splunk]] for setup instructions and the systemd service.
+
+Configure forwarding to Splunk receiving port
+```sh
+bin/splunk add forward-serv
+```
