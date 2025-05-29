@@ -33,6 +33,12 @@ bin/splunk add forward-server [ip-of-splunk-receiver]:[receiving-port]
 > Receiving port refers to the previously configured port in `Settings > Forwarding and receiving > Configure receiving`.
 > This can be further configured in `etc/system/local/outputs.conf`
 
+Configure specific outputs in `etc/system/local/outputs.conf`
+```conf
+[tcpout:output_group]
+server = ip.of.server.1,ip.of.server.2
+```
+
 Configure monitoring
 ```sh
 bin/splunk add monitor /path/to/monitored
@@ -42,6 +48,8 @@ Configure monitor inputs with specific source type names in `etc/system/local/in
 ```conf
 [monitor:///path/to/monitored]
 sourcetype = source_name
+index = index_name
+_TCP_ROUTING = output_group
 ```
 > Splunk comes pre-shipped with source types that define automatic parsing behavior when indexed. [List of pretrained source types](https://docs.splunk.com/Documentation/Splunk/9.4.2/Data/Listofpretrainedsourcetypes).
 ### Windows with Sysmon
