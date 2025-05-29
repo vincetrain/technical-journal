@@ -25,7 +25,9 @@ bin/splunk add forward-server [ip-of-splunk-receiver]:[receiving-port]
 ```
 > Receiving port refers to the previously configured port in `Settings > Forwarding and receiving > Configure receiving`.
 
-Configure monitor inputs
+Configure monitor inputs.
 ```sh
 bin/splunk add monitor [path-to-logs]
 ```
+
+Configure monitor inputs with specific source type names
