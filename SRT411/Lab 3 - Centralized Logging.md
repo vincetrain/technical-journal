@@ -6,6 +6,10 @@
 
 [Configure the universal forwarder using configuration files](https://help.splunk.com/en/splunk-enterprise/forward-and-process-data/universal-forwarder-manual/9.4/configure-the-universal-forwarder/configure-the-universal-forwarder-using-configuration-files)
 
+[inputs.conf](https://docs.splunk.com/Documentation/Splunk/9.4.2/Admin/Inputsconf)
+
+[outputs.conf](https://docs.splunk.com/Documentation/Splunk/9.4.2/Admin/Outputsconf)
+
 ## Installing Splunk
 If installing through `apt`, the home directory of Splunk will be found in `/opt/splunk`.
 
@@ -19,12 +23,13 @@ Stop Splunk
 ```sh
 bin/splunk stop
 ```
-## Configuring Universal Splunk Forwarder
-In Splunk, navigate to `Settings > Forwarding and receiving > Configure receiving`, and configure a port to receive data on.
-### Linux
+## Configuring Log Forwarding
+In Splunk Enterprise, navigate to `Settings > Forwarding and receiving > Configure receiving`, and configure a port to receive data on.
+### Universal Forwarder
 Install the Universal Splunk Forwarder on the host that will be monitored.
 
 If installing through `apt`, the home directory of Splunk will be found in `/opt/splunkforwarder`.
+If installing on Windows, the home directory of Splunk will be found in `C:\Program Files\SplunkUniversalForwarder` by default.
 
 Configure forwarding to Splunk receiver
 ```sh
@@ -39,7 +44,7 @@ Configure specific outputs in `etc/system/local/outputs.conf`
 server = ip.of.server.1,ip.of.server.2
 ```
 
-Configure monitoring
+Configure basic monitoring
 ```sh
 bin/splunk add monitor /path/to/monitored
 ```
@@ -52,27 +57,23 @@ index = index_name
 _TCP_ROUTING = output_group
 ```
 > Splunk comes pre-shipped with source types that define automatic parsing behavior when indexed. [List of pretrained source types](https://docs.splunk.com/Documentation/Splunk/9.4.2/Data/Listofpretrainedsourcetypes).
-### Windows with Sysmon
-
-### Storing data in different indices per source type
-To dictate storage of data in indices per source type, we can apply a transform filter.
-
-Ensure the index is created beforehand. This can be done in `Settings > Indexes > New Index`.
+> Different types of inputs can be monitored. [inputs.conf](https://docs.splunk.com/Documentation/Splunk/9.4.2/Admin/Inputsconf).
+> If monitoring Windows Event Logs, it is wise to install Universal Forwarder as a local user.
+### Changing metadata fields
 
 Configure `etc/system/local/transforms.conf` to define transform filter.
 ```conf
-[set_index_subclass]
+[set_metadata_subclass]
 REGEX = .
 DEST_KEY = _MetaData:Index
 FORMAT = index_name
 ```
-> `set_index_subclass` can be any name, but should be unique in the `transforms.conf`.
+> `set_metadata_subclass` can be any name, but should be unique in the `transforms.conf`.
 > `DEST_KEY` specifies what key in the metadata to apply the transform on.
-> `FORMAT` specifies what to format the `DEST_KEY` as (in this example, we are setting the Index metadata key to index_name).
-> `index_name` is the name of the index to store data at.
+> `FORMAT` specifies what to format the `DEST_KEY` as (in this example, we are setting the Index metadata key to `index_name`).
 
 Configure `etc/system/local/props.conf` to apply the transform filter on source type data.
 ```conf
 [source-type]
-TRANSFORM-set_index = set_index_subclass
+TRANSFORM-set_metadata = set_metadata_subclass
 ```
