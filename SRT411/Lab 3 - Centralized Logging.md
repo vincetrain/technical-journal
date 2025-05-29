@@ -1,10 +1,5 @@
 [Launch Splunk Web](https://docs.splunk.com/Documentation/Splunk/9.4.2/SearchTutorial/StartSplunk#Start_Splunk_Enterprise_on_Linux)
 ## Installing Splunk
-For this lab I will be installing Splunk Enterprise using the portable installation on the website.
-
-This involves creating a new user and a new systemctl service. Refer to [[Lab 2 - ELK Stack Clustering and Index Management#Configuring Elasticsearch as a service]].
-> This should be done AFTER we've started Splunk for the first time and accepted the license/created the administrator user.
-
 Start Splunk and configure for the first time
 ```sh
 bin/splunk start
@@ -29,9 +24,6 @@ In Splunk, navigate to `Settings > Forwarding and receiving > Configure receivin
 
 ### Linux
 Install the Universal Splunk Forwarder on the host that will be monitored.
-
-This lab will follow installation with Universal Splunk Forwarder's portable installation.
-> Refer to [[Lab 2 - ELK Stack Clustering and Index Management#Configuring Elasticsearch as a service]] and [[Lab 3 - Centralized Logging#Installing Splunk]] for setup instructions and the systemd service.
 
 Configure forwarding to Splunk receiver
 ```sh
