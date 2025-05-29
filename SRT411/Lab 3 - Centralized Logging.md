@@ -7,13 +7,13 @@ Start Splunk
 bin/splunk start
 ```
 > Splunk will be available at over 0.0.0.0:8000.
+> Fresh installations will require 
 
-Stop splunk
-```sh
-bin/splunk stop
-```
+
+
 ## Configuring Forwarders
 In Splunk, navigate to `Settings > Forwarding and receiving > Configure receiving`, and configure a port to receive data on.
+
 ### Linux
 Install the Universal Splunk Forwarder on the host that will be monitored.
 
