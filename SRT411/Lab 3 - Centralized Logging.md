@@ -19,7 +19,7 @@ Stop Splunk
 ```sh
 bin/splunk stop
 ```
-## Configuring Universal SplForwarders
+## Configuring Universal Splunk Forwarder
 In Splunk, navigate to `Settings > Forwarding and receiving > Configure receiving`, and configure a port to receive data on.
 ### Linux
 Install the Universal Splunk Forwarder on the host that will be monitored.
