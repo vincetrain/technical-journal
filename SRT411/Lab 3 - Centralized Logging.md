@@ -24,11 +24,17 @@ Configure forwarding to Splunk receiver
 bin/splunk add forward-server [ip-of-splunk-receiver]:[receiving-port]
 ```
 > Receiving port refers to the previously configured port in `Settings > Forwarding and receiving > Configure receiving`.
+> This can be further 
+
+Configure monitoring
+```sh
+bin/splunk add monitor /path/to/monitored
+```
 
 Configure monitor inputs with specific source type names in `/etc/system/local/inputs.conf`.
 ```conf
 [monitor:///path/to/monitored]
 sourcetype = source_name
 ```
-
+> Splunk comes pre-shipped with source types that define automatic parsing behavior when indexed. [List of pretrained source types](https://docs.splunk.com/Documentation/Splunk/9.4.2/Data/Listofpretrainedsourcetypes).
 ### Storing data in different indices per source type
