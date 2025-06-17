@@ -1,0 +1,1 @@
+To analyze network captures from PCAP files, we will use **packetbeat**.
